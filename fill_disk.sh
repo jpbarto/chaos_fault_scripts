@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
+###############################################################################################
+#
+# The following shell script uses AWS Systems Manager to execute multiple instances of DD in 
+# order to create large files (each approximately 12 GB in size) with the objective being to
+# fill the disk to capacity.
+#
+# Output for the shell script that executes on the EC2 instance can be obtained from Systems 
+# Manager Run Command either through the AWS Console or using the AWS CLI.
+#
+###############################################################################################
+
 set -e
 
-EC2_INSTANCE_ID="i-0ade35e7fef304e24"
-TEST_DURATION=300
+EC2_INSTANCE_ID="i-0ade12e1fef123e24"
 REGION="eu-west-3"
 
 aws ssm send-command \
